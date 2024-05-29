@@ -15,6 +15,7 @@ export const isResponseOk = (response) => {
   return !(response instanceof Error)
 }
 
+
 const normalizeDataObject = (obj) => {
   let str = JSON.stringify(obj)
   
@@ -23,6 +24,8 @@ const normalizeDataObject = (obj) => {
   const result = { ...newObj, category: newObj.categories }
   return result;
 }
+
+
 export const normalizeData = (data) => {
   return data.map((item) => {
     return normalizeDataObject(item)
@@ -100,6 +103,9 @@ export const getMe = async (url, jwt) => {
 export const checkIfUserVoted = (game, userId) => {
   return game.users.find((user) => user.id === userId)
 }
+
+
+
 
 export const vote = async (url, jwt, usersArray) => {
   try {
