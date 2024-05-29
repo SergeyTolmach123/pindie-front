@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { getJWT, setJWT, removeJWT, getMe } from '../api/api-utils';
 import { endpoints } from '../api/config';
-//1234
 export const useStore = create((set) => ({
     isAuth: false,
     user: null,
@@ -11,7 +10,9 @@ export const useStore = create((set) => ({
         setJWT(token);
     },
     logout: () => {
-        set({ isAuth: false, user: null, token: null });
+        set({isAuth: false,
+             user: null,
+             token: null});
         removeJWT();
     },
     checkAuth: async () => {
